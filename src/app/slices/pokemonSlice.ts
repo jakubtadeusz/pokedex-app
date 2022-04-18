@@ -8,12 +8,14 @@ export interface PokemonsState {
   pokemons: Pokemon[];
   limit: number;
   offset: number;
+  pokemonChanged?: Pokemon;
 }
 
 const initialState: PokemonsState = {
   pokemons: [],
   limit: 20,
   offset: 0,
+  pokemonChanged: undefined,
 };
 
 export const pokemonSlice = createSlice({
@@ -30,10 +32,18 @@ export const pokemonSlice = createSlice({
         offset: newOffset,
       };
     },
+    updatePokemon: (state, action) => {
+      return {
+        ...state,
+        pokemons: state.pokemons.map((p) =>
+          p.name === action.payload.name ? action.payload : p
+        ),
+      };
+    },
   },
 });
 
-export const { addPokemons } = pokemonSlice.actions;
+export const { addPokemons, updatePokemon } = pokemonSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -41,6 +51,8 @@ export const { addPokemons } = pokemonSlice.actions;
 export const selectPokemons = (state: RootState) => state.pokemons.pokemons;
 export const selectOffset = (state: RootState) => state.pokemons.offset;
 export const selectLimit = (state: RootState) => state.pokemons.limit;
+export const selectPokemonById = (state: RootState, id: number) =>
+  state.pokemons.pokemons[id];
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
