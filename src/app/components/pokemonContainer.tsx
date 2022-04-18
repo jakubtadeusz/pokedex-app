@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Pokemon from "../models/pokemon";
 import { addPokemons, selectLimit, selectOffset, selectPokemons, updatePokemon } from "../slices/pokemonSlice";
 import PokemonEntry from "./pokemonEntry";
+import './styles/pokemonContainer.css'
 
 
 const PokemonContainer = () => {
@@ -34,9 +35,7 @@ const PokemonContainer = () => {
     }, [dispatch])
 
 
-      return (<div>
-        <h1>Pokemons</h1>
-        <h2>{offset}</h2>
+      return (<div className="pokemons">
         {pokemons.map((pokemon: Pokemon, id: number)=><PokemonEntry key={id} pokemon={pokemon} pokemonId={id}/>)}
         </div>);  
     

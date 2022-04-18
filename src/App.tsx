@@ -9,6 +9,7 @@ function App() {
       <header>Pokedex</header>
       <PokemonContainer/>
       <LoadMorePokemonsButton/>
+      <footer>Jakub Tadeusz</footer>
     </div>
   );
 }

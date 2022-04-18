@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Pokemon from "../models/pokemon";
 import { addPokemons, selectLimit, selectOffset, updatePokemon } from "../slices/pokemonSlice";
+import './styles/loadMorePokemonsButton.css'
 
 const LoadMorePokemonsButton = () => {
     const dispatch = useDispatch();
@@ -33,8 +34,8 @@ const LoadMorePokemonsButton = () => {
 
       }
 
-    return (<div>
-        <button onClick={handleButtonClick}>{buttonText}</button>
+    return (<div className="load-pokemons">
+        <button type="button" className="btn btn-primary" onClick={handleButtonClick}>{buttonText}</button>
     </div>)
 }
 
