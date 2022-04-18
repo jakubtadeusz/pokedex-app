@@ -22,11 +22,12 @@ export const pokemonSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     addPokemons: (state, action) => {
+      const newOffset = state.offset + state.limit;
       state.pokemons.concat(action.payload);
       return {
         ...state,
         pokemons: state.pokemons.concat(action.payload),
-        offset: state.offset + state.limit,
+        offset: newOffset,
       };
     },
   },
@@ -38,6 +39,8 @@ export const { addPokemons } = pokemonSlice.actions;
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectPokemons = (state: RootState) => state.pokemons.pokemons;
+export const selectOffset = (state: RootState) => state.pokemons.offset;
+export const selectLimit = (state: RootState) => state.pokemons.limit;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
