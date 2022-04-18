@@ -12,14 +12,12 @@ const PokemonEntry = (props: {pokemon: Pokemon, pokemonId: number}): JSX.Element
     const [pokemon, setPokemon] = useState(props.pokemon);
 
     useEffect(()=>{
-        console.log(pokemons[props.pokemonId]);
         if(pokemons[props.pokemonId].sprite !== undefined){
             setPokemon(pokemons[props.pokemonId]);
         }
     }, [pokemons])
 
     useEffect(()=>{
-        console.log(pokemon);
         if(pokemon.sprite === undefined){
             setLoading(true);
         }else{

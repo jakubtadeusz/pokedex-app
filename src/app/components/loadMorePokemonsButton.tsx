@@ -30,10 +30,6 @@ const LoadMorePokemonsButton = () => {
       }
 
 
-      const loadNextPokemons = () => {
-
-      }
-
     return (<div className="load-pokemons">
         <button type="button" className="btn btn-primary" onClick={handleButtonClick}>{buttonText}</button>
     </div>)

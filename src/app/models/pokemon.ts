@@ -2,7 +2,7 @@ class Pokemon {
   name: string;
   url: string;
   sprite?: string;
-  types: string[] = [];
+  types: { name: string; url: string }[] = [];
   weight?: number;
   height?: number;
 

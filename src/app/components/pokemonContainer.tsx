@@ -30,14 +30,17 @@ const PokemonContainer = () => {
       });
     }
 
+
     useEffect(()=>{
       loadNextPokemons();
     }, [dispatch])
 
-
-      return (<div className="pokemons">
-        {pokemons.map((pokemon: Pokemon, id: number)=><PokemonEntry key={id} pokemon={pokemon} pokemonId={id}/>)}
-        </div>);  
+      return (
+      <div className="pokemons">
+        <div>
+          {pokemons.map((pokemon: Pokemon, id: number)=><PokemonEntry key={id} pokemon={pokemon} pokemonId={id}/>)}
+        </div>
+      </div>);  
     
 } 
 
