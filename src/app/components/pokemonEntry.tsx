@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Pokemon from "../models/pokemon";
+import './styles/pokemonEntry.css'
 
 const PokemonEntry = (props: {pokemon: Pokemon}): JSX.Element => {
     const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ const PokemonEntry = (props: {pokemon: Pokemon}): JSX.Element => {
         setExtended(!extended);
     }
 
-    return (<div onClick={handleClick}>
+    return (<div onClick={handleClick} className="pokemon-entry">
         <img src={sprite} alt={`${props.pokemon.name}-sprite`}></img>
         <p>{props.pokemon.name}</p>
         {extended&& <div>

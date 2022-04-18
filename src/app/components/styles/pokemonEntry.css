@@ -1,0 +1,10 @@
+
+.pokemon-entry {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    box-shadow: 1px 1px 1px 1px black;
+    width: 40vw;
+}
